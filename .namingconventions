@@ -8,3 +8,30 @@
 	* If you have any questions or suggestions, please Slack me or DM me on Discord :)
 */
 
+// I will refer to cases a lot: 
+	// PascalCase (First letter of each word is capitalised)
+	// camelCase (First letter of every word after the first is capitalised)
+
+// Namespaces, Classes & Methods | PascalCase
+	// * A collection of classes that are referred to using a prefix on the class name
+
+	public class ThisIsANamespace : MonoBehaviour
+	{
+		AnotherExample.CurrentGame.UI.MainMenu;
+
+		public void SomeMethod{}
+	}
+
+// Fields are camelCase, Static Fields are PascalCase
+
+	// Field
+	private int thisIsAField;
+	private static int ThisIsAStaticField;
+
+// Parameters | camelCase
+
+	public void ExampleFunction(int exampleParameter);
+
+// Events & Actions have the "On" prefix | PascalCase
+
+	public UnityAction OnDeath;
