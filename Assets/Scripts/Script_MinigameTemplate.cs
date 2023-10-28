@@ -2,8 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Bare minimum requirements all minigames should have in order to function
 public class Script_MinigameTemplate : MonoBehaviour
 {
+    // PLEASE MAKE A COPY OF THIS AND TITLE IT Script_[Name]_[Game]
+    // EXAMPLE : Script_Karl_Flashing
+    // PLEASE MAKE THE GAME THE SAME AS FOUND IN Script_MinigameTemplate
+    
+    // OnEnable is called before Start
+    void OnEnable()
+    {
+
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +26,12 @@ public class Script_MinigameTemplate : MonoBehaviour
     {
         
     }
+
+    // Function for fail state
+
+    // Function for win state
+
+    // Function for player input
+
+    // Functions to talk to higher scripts (UI, Minigame Manager, Game Manager etc.)
 }
