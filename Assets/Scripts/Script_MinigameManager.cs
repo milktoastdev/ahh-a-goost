@@ -8,7 +8,7 @@ public class Script_MinigameManager : MonoBehaviour
         // To add and subtract from minigame lists
     int _currentMinigame;
         // Called in NextMinigame()
-    int _maximumMinigames = 8;
+    int _maximumMinigames = 6;
     // ---------------------------------------------------------------------
     
     // Lists ---------------------------------------------------------------
