@@ -26,6 +26,13 @@ public class Script_GameManager : MonoBehaviour
         
     }
 
+    // Attached to Start button
+    // Will start gameplay loop
+    public void StartGame()
+    {
+
+    }
+
     // Attached to Quit button
     // Will close the built out version
     public void QuitGame()
