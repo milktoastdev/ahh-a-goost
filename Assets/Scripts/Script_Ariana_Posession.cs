@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Script_Ariana_Posession : MonoBehaviour
 {
-    // PLEASE MAKE A COPY OF THIS AND TITLE IT Script_[Name]_[Game]
-    // EXAMPLE : Script_Karl_Flashing
-    // PLEASE MAKE THE GAME THE SAME AS FOUND IN Script_MinigameTemplate
+    // Variables -----------------------------------------------------------
+    // GameObjects attached to the items able to be posessed.
+    public GameObject _theLamp;
+    public GameObject _theBook;
+    public GameObject _thePainting;
+    public GameObject _posessedItem;
+    // ---------------------------------------------------------------------
+
+    public List<GameObject> _itemsToPosess = new List<GameObject> {};
     
     // OnEnable is called before Start
     void OnEnable()
     {
-
+        // PickItem();
     }
     
     // Start is called before the first frame update
@@ -25,6 +31,11 @@ public class Script_Ariana_Posession : MonoBehaviour
     {
         
     }
+
+    // public GameObject PickItem()
+    // {
+       // _posessedItem = _itemsToPosess[Random.Range(0,_itemsToPosess.Count)];
+    // }
 
     // Function for fail state
 

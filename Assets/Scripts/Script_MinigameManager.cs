@@ -17,7 +17,7 @@ public class Script_MinigameManager : MonoBehaviour
     public List<GameObject> _minigameObjects = new List<GameObject>{};
     
     // All minigames overall. This list should not change so it can reset the other lists for new players.
-    private List<string> _minigamesList = new List<string>{"Cupboards","Cleaning","Capturing","Posessed","Difference","Flashing"};
+    private List<string> _minigamesList = new List<string>{"Cupboards","Cleaning","Capture","Posession","Difference","Flashing"};
         
     // Holds minigames not yet played this run
     private List<string> _minigamesRemaining = new List<string>{};
