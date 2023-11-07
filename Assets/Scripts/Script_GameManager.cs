@@ -2,20 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Manages player-oriented information
-// Highest script, the Overlord, if you will.
 public class Script_GameManager : MonoBehaviour
 {
+    // Every scene should have a Game Manager object with all scripts *except* for the individual minigame template script attached.
+    // DO NOT DELETE -------------------------------------------------------
+    public GameObject _gameManager;
+    // ---------------------------------------------------------------------
+    
     // Variables -----------------------------------------------------------
     int _startingLives = 3;
     int _remainingLives;
     // ---------------------------------------------------------------------
     
-    // Start is called before the first frame update
-    void Start()
+    void NewGame()
     {
         // Sets initial lives without interfereing with overall start value
         _remainingLives = _startingLives;
+    }
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
         
         // Load titlescreen elements
     }

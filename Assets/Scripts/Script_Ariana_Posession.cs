@@ -4,44 +4,68 @@ using UnityEngine;
 
 public class Script_Ariana_Posession : MonoBehaviour
 {
-    // Variables -----------------------------------------------------------
-    // GameObjects attached to the items able to be posessed.
+    // DO NOT DELETE -------------------------------------------------------
+    public GameObject _gameManager;
+    // ---------------------------------------------------------------------
+    
     public GameObject _theLamp;
     public GameObject _theBook;
     public GameObject _thePainting;
     public GameObject _posessedItem;
-    // ---------------------------------------------------------------------
-
+    
+    // Holds all posessable items.
     public List<GameObject> _itemsToPosess = new List<GameObject> {};
     
     // OnEnable is called before Start
     void OnEnable()
     {
-        // PickItem();
+        PickItem();
+        Debug.Log("Picking item...");
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        PosessionStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // checking if player has wonnnnn
     }
 
-    // public GameObject PickItem()
-    // {
-       // _posessedItem = _itemsToPosess[Random.Range(0,_itemsToPosess.Count)];
-    // }
+    // Picks which item to posess.
+    public GameObject PickItem()
+    {
+        _posessedItem = _itemsToPosess[Random.Range(0,_itemsToPosess.Count)];
+        Debug.Log("Slimon has chosen.");
+        return _posessedItem;
+    }
 
-    // Function for fail state
+   // Initiates the posessed item and makes it move.
+   void PosessionStart()
+   {
+        _gameManager.GetComponent<Script_UIManager>().TimerReset();
+        Debug.Log("Resetting timer...");
 
-    // Function for win state
+        _gameManager.GetComponent<Script_MinigameManager>()._isMinigameRunning = true;
+        Debug.Log("Minigame is running");
+   }
 
-    // Function for player input
+    // Player wins minigame
+    void PosessionWin()
+    {
+        Debug.Log("Local win function called");
+        _gameManager.GetComponent<Script_MinigameManager>().MinigameWon();
+        Debug.Log("Remote win function called");
+    }
 
-    // Functions to talk to higher scripts (UI, Minigame Manager, Game Manager etc.)
+    // Player fails minigame
+    void PosessionFail()
+    {
+        Debug.Log("Local lose function called");
+        _gameManager.GetComponent<Script_MinigameManager>().MinigameFailed();
+        Debug.Log("Remote lose function called");
+    }
 }

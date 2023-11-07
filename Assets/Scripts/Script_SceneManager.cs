@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Script_SceneManager : MonoBehaviour
 {
+    // DO NOT DELETE -------------------------------------------------------
+    public GameObject _gameManager;
+    // ---------------------------------------------------------------------
+    
     // Start is called before the first frame update
     void Start()
     {

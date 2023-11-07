@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Script_MinigameManager : MonoBehaviour
 {
-    // Variables -----------------------------------------------------------
-        // To add and subtract from minigame lists
-    int _currentMinigame;
-        // Called in NextMinigame()
-    int _maximumMinigames = 6;
+    // DO NOT DELETE -------------------------------------------------------
+    public GameObject _gameManager;
     // ---------------------------------------------------------------------
     
-    // Lists ---------------------------------------------------------------
+    int _currentMinigame;
+    int _maximumMinigames = 6;
+    
+    public bool _isMinigameRunning = false;
+
     // Each minigame's controller will need to be added to this list in engine.
     // IN THE CORRECT ORDER
     public List<GameObject> _minigameObjects = new List<GameObject>{};
@@ -27,8 +28,7 @@ public class Script_MinigameManager : MonoBehaviour
         
     // Holds lost minigames for the opportunity to retry later
     private List<string> _minigamesFailed = new List<string>{};
-    // ---------------------------------------------------------------------
-    
+
     // OnEnable is called before Start. 
     // The object this script is attached to is inactive by default.
     void OnEnable()
@@ -40,21 +40,33 @@ public class Script_MinigameManager : MonoBehaviour
         Debug.Log("Minigame loop initiated");
     }
 
-    void ResetGame()
+    // Update is called once per frame
+    void Update()
     {
-        Debug.Log("Game being reset...");
-
-        // Goes through the list to add every game back to games remaining in the correct order
-        for(int i = 0; i < _minigamesList.Count; i++)
-        {
-            _minigamesRemaining.Add(_minigamesList[i]);
-            Debug.Log($"Added {_minigamesList[i]} to _minigamesRemaining");
-        }
+        
     }
+
+    // Holds the loop checking if the quantity of minigames in a run has been met.
+    public int NextMinigame()
+    {
+        Debug.Log("Next minigame called!");
+        
+        int _thisMinigame = -1;
+        
+        for(int i = 0; i < _maximumMinigames; i++)
+        {
+            _thisMinigame = Random.Range(0,_minigamesList.Count);
+
+            _currentMinigame = _thisMinigame;          
+        }
+
+        return _thisMinigame;
+    } 
 
     // Called by the minigame itself when the game is won
     public void MinigameWon()
     {
+        _isMinigameRunning = false;
         Debug.Log("Current minigame won");
 
         // Adds the current game to the Won list
@@ -77,30 +89,21 @@ public class Script_MinigameManager : MonoBehaviour
     // Called by the minigame itself when the game is lost if the player has remaining lives
     public void MinigameFailed()
     {
+        _isMinigameRunning = false;
+        Debug.Log("Current minigame failed");
         // Puts the game in the failed list to be retried last
         // NextMinigame
     }
     
-    // Update is called once per frame
-    void Update()
+    void ResetGame()
     {
-        
-    }
+        Debug.Log("Game being reset...");
 
-    // Holds the loop checking if the quantity of minigames in a run has been met.
-    public int NextMinigame()
-    {
-        Debug.Log("Next minigame called!");
-        
-        int _thisMinigame = -1;
-        
-        for(int i = 0; i < _maximumMinigames; i++)
+        // Goes through the list to add every game back to games remaining in the correct order
+        for(int i = 0; i < _minigamesList.Count; i++)
         {
-            _thisMinigame = Random.Range(0,_minigamesList.Count);
-
-            _currentMinigame = _thisMinigame;          
+            _minigamesRemaining.Add(_minigamesList[i]);
+            Debug.Log($"Added {_minigamesList[i]} to _minigamesRemaining");
         }
-
-        return _thisMinigame;
     }
 }
