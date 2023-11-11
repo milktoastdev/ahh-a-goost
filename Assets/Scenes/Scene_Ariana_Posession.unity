@@ -225,7 +225,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 3
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 84.75818, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -695,11 +695,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804a5f25ede5e70438f4b8ed9dae57b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameManager: {fileID: 902578526}
   _theLamp: {fileID: 1982611986}
   _theBook: {fileID: 1434456333}
   _thePainting: {fileID: 148052097}
   _posessedItem: {fileID: 0}
-  _gameManager: {fileID: 0}
   _itemsToPosess:
   - {fileID: 1982611986}
   - {fileID: 1434456333}
@@ -807,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 902578526}
+  _isMinigameRunning: 0
   _minigameObjects: []
 --- !u!1 &1434456333
 GameObject:
