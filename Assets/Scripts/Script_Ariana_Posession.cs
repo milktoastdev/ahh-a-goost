@@ -17,7 +17,7 @@ public class Script_Ariana_Posession : MonoBehaviour
     public List<GameObject> _itemsToPosess = new List<GameObject> {};
     
     // Holds all of the hearts.
-    public List<GameObject> _lifeList = new List<GameObject> {(_gameManager.GetComponent<Script_UIManager>._heart1),(_gameManager.GetComponent<Script_UIManager>._heart2),(_gameManager.GetComponent<Script_UIManager>._heart3)};
+    // public List<GameObject> _lifeList = new List<GameObject> {(_gameManager.GetComponent<Script_UIManager>._heart1),(_gameManager.GetComponent<Script_UIManager>._heart2),(_gameManager.GetComponent<Script_UIManager>._heart3)};
     
     // OnEnable is called before Start
     void OnEnable()
