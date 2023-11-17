@@ -18,6 +18,8 @@ public class Script_GameManager : MonoBehaviour
     {
         // Sets initial lives without interfereing with overall start value
         _remainingLives = _startingLives;
+
+        
     }
     
     // Start is called before the first frame update

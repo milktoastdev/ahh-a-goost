@@ -14,11 +14,6 @@ public class Script_UIManager : MonoBehaviour
     private float _timeRemaining = 0.0f;
     public TextMeshProUGUI _countDown;
     
-    // Used in the posession minigame
-    public GameObject _heart1;
-    public GameObject _heart2;
-    public GameObject _heart3;
-    
     // Start is called before the first frame update
     void Start()
     {
