@@ -59,13 +59,21 @@ public class Script_Karl_Cleaning : MonoBehaviour
         if (gooGone == true) 
         {
 
-            print("YOU DID IT!");
+            Win();
 
         }
 
     }
 
-    // Function for fail state
+    void Win()
+    {
+        print("You did it!");
+    }
+
+    void Fail()
+    {
+        print("Get gooed");
+    }
 
     // Functions to talk to higher scripts (UI, Minigame Manager, Game Manager etc.)
 }

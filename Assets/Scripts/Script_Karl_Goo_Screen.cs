@@ -94,5 +94,10 @@ public class Script_Karl_Goo_Screen : MonoBehaviour
         print("You got rid of the goop!");
     }
 
+    void Fail()
+    {
+        print("Get gooed idiot!");
+    }
+
     // Functions to talk to higher scripts (UI, Minigame Manager, Game Manager etc.)
 }
