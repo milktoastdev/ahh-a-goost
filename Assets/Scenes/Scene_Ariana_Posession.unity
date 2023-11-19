@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588fe6b8a198f3d4889a870a97110841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameManager: {fileID: 902578526}
+  _minigameManager: {fileID: 0}
 --- !u!4 &902578528
 Transform:
   m_ObjectHideFlags: 0
@@ -791,6 +791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 902578526}
+  _minigameManager: {fileID: 902578526}
+  _sceneManager: {fileID: 902578526}
   _timerTMP: {fileID: 4705224097471123567, guid: 3ac459e87ab8b9e438198d81017ad324, type: 3}
   _countDown: {fileID: 0}
 --- !u!114 &902578530
@@ -821,7 +823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 902578526}
   _isMinigameRunning: 0
-  _minigameObjects: []
   _minigamesList:
   - Cupboards
   - Cleaning

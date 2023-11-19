@@ -12,10 +12,6 @@ public class Script_MinigameManager : MonoBehaviour
     int _maximumMinigames = 6;
     
     public bool _isMinigameRunning = false;
-
-    // Each minigame's controller will need to be added to this list in engine.
-    // IN THE CORRECT ORDER
-    public List<GameObject> _minigameObjects = new List<GameObject>{};
     
     // All minigames overall. This list should not change so it can reset the other lists for new players.
     public List<string> _minigamesList = new List<string>{"Cupboards","Cleaning","Capture","Posession","Difference","Gooing"};
@@ -28,17 +24,6 @@ public class Script_MinigameManager : MonoBehaviour
         
     // Holds lost minigames for the opportunity to retry later
     private List<string> _minigamesFailed = new List<string>{};
-
-    // OnEnable is called before Start. 
-    // The object this script is attached to is inactive by default.
-    void OnEnable()
-    {
-        Debug.Log("MinigameManager enabled");
-        
-        // Inititates the minigame loop.
-        NextMinigame();
-        Debug.Log("Minigame loop initiated");
-    }
 
     // Update is called once per frame
     void Update()
