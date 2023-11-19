@@ -4,38 +4,25 @@ using UnityEngine;
 
 public class Script_GameManager : MonoBehaviour
 {
-    // Every scene should have a Game Manager object with all scripts *except* for the individual minigame template script attached.
-    // DO NOT DELETE -------------------------------------------------------
     public GameObject _minigameManager;
-    // ---------------------------------------------------------------------
-    
-    // Variables -----------------------------------------------------------
+    public GameObject _uiManager;
+
     int _startingLives = 3;
-    int _remainingLives;
-    // ---------------------------------------------------------------------
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int _remainingLives;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // Resets lives
-    // Starts gameplay loop in Minigame Manager
+    // Resets lives, resets lists, initiates minigame loop
     public void StartGame()
     {
         _remainingLives = _startingLives;
         // Debug.Log($"Lives have been reset to {_remainingLives}");
+
+        // Debug.Log("Reset Game function called...");
+        _minigameManager.GetComponent<Script_MinigameManager>().ResetGame();
+        // Debug.Log("Reset Game function executed successfully");
         
         // Debug.Log("Start Game function called...");
         _minigameManager.GetComponent<Script_MinigameManager>().NextMinigame();
-        // Debug.Log("Start Game function executed");
+        // Debug.Log("Start Game function executed successfully");
     }
 
     // Closes built out application
@@ -49,21 +36,16 @@ public class Script_GameManager : MonoBehaviour
     // Called when player completes all games with life remaining
     public void GameWin()
     {
-        Debug.Log("Game win function called");
-        // Instantiates a UI element win tile
-        
-        // Instantiates a UI button to return to title screen
-            // Calls scene manager to load and set title screen to active
-        // Instantiates a UI button to quit
-            // Calls QuitGame() function
-        Debug.Log("Game win function executed");
+        // Debug.Log("Game win function called");
+        _uiManager.GetComponent<Script_UIManager>().GameWonScreen();
+        // Debug.Log("Game win function executed");
     }
 
     // Called when the player has no remaining life
     public void GameOver()
     {
-        Debug.Log("Game over function called");
-
-        Debug.Log("Game over function executed");
+        // Debug.Log("Game over function called");
+        _uiManager.GetComponent<Script_UIManager>().GameOverScreen();
+        // Debug.Log("Game over function executed");
     }
 }
