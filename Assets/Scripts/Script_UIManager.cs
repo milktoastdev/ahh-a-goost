@@ -8,6 +8,8 @@ public class Script_UIManager : MonoBehaviour
 {
     // DO NOT DELETE -------------------------------------------------------
     public GameObject _gameManager;
+    public GameObject _timerTMP;
+    private bool _isTimerDisplayed = false;
     // ---------------------------------------------------------------------
     
     private float _timeAllowed = 30.0f;
@@ -17,7 +19,22 @@ public class Script_UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DisplayTimer();
+    }
+
+    // Instantiates the timer prefab and displays it on the Canvas
+    void DisplayTimer()
+    {
+        if(_isTimerDisplayed == false)
+        {
+            _timerTMP = Instantiate(_timerTMP, new Vector3(113.0f,18.0f,0), Quaternion.identity) as GameObject;
+
+            _timerTMP.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+
+            _countDown = _timerTMP.GetComponent<TextMeshProUGUI>();
+
+            _isTimerDisplayed = true;
+        }
     }
 
     // Update is called once per frame

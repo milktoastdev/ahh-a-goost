@@ -7,64 +7,54 @@ public class Script_SceneManager : MonoBehaviour
 {
     // DO NOT DELETE -------------------------------------------------------
     public GameObject _gameManager;
+    public GameObject _minigameManager;
     // ---------------------------------------------------------------------
     
-    public List<string> _sceneNames = new List<string> {"Scene_Ethan1","Scene_Karl1"};
-    private string _currentActiveScene;
-    private string _nextActiveScene;
-    private bool _isNextActive = false;
-
+    // Scene names in the order they appear in the minigame manager list
+    private List<string> _sceneNames = new List<string> {"Scene_Ethan1","Scene_Karl1","Scene_Ariana_Capture","Scene_Ariana_Posession","Scene_Ethan2","Scene_Karl2"};
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Load the main menu scene
+        // Set the main menu scene as active
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if(_currentActiveScene() != _minigameManager.GetComponent<Script_MinigameManager>().)
     }
 
-    // Ariana game 1
-    void ScenePosession()
+    int CurrentScene(int _sceneListValue)
     {
+        _sceneListValue = -1;
+        
+        return _sceneListValue;
+    }
+    
+    // Loads and sets the next scene as active
+    public string ChangeScene(string _nextActiveScene, string _currentActiveScene)
+    {
+        // Next active scene is equivalent to the game chosen in the minigame manager
+        _nextActiveScene = _sceneNames[_minigameManager.GetComponent<Script_MinigameManager>().NextMinigame()];
+        
         // Loads the scene
-        SceneManager.LoadScene("Scene_Ariana_Posession", LoadSceneMode.Additive);
-        Debug.Log("Loaded posession scene");
+        SceneManager.LoadScene($"{_nextActiveScene}", LoadSceneMode.Additive);
+        // Tells us which scene is now loaded
+        Debug.Log($"Loaded {_minigameManager.GetComponent<Script_MinigameManager>()._minigamesList[_minigameManager.GetComponent<Script_MinigameManager>().NextMinigame()]} scene");
 
         // Sets the scene as active
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Scene_ArianaPosession"));
-        Debug.Log("Set posession as active scene");
-    }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName($"{_nextActiveScene}"));
+        // Tells us which scene is now active
+        Debug.Log($"Set {_minigameManager.GetComponent<Script_MinigameManager>()._minigamesList[_minigameManager.GetComponent<Script_MinigameManager>().NextMinigame()]} as active scene");
 
-    // Ariana game 2
-    void SceneCapture()
-    {
+        // What was next in line is now current
+        _currentActiveScene = _nextActiveScene;
 
-    }
-
-    // Ethan game 1
-    void SceneCupboards()
-    {
-
-    }
-
-    // Ethan game 2
-    void SceneDifference()
-    {
-
-    }
-
-    // Karl game 1
-    void SceneCleaning()
-    {
-
-    }
-
-    // Karl game 2
-    void SceneGooing()
-    {
-
+        // Next is now empty
+        _nextActiveScene = null;
+        
+        return _currentActiveScene;
     }
 }
