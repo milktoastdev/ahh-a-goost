@@ -63,7 +63,7 @@ public class Script_SceneManager : MonoBehaviour
         // Debug.Log("Scene activation allowed");
 
         // Debug.Log("Load Scene Async function executed successfully");
-
+        
         yield return null;
     }
     

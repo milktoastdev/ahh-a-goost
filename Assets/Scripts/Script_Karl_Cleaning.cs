@@ -7,28 +7,16 @@ using UnityEngine;
 // Bare minimum requirements all minigames should have in order to function
 public class Script_Karl_Cleaning : MonoBehaviour
 {
-    // PLEASE MAKE A COPY OF THIS AND TITLE IT Script_[Name]_[Game]
-    // EXAMPLE : Script_Karl_Flashing
-    // PLEASE MAKE THE GAME THE SAME AS FOUND IN Script_MinigameTemplate
-
+    public GameObject _minigameManager;
+    
     float transp = 0.8f;
     //Forcing a field for the script so it knows which object in the scene to pull from when I ask for a colour
     [SerializeField] private Renderer myMaterial;
-
-    // OnEnable is called before Start
-    void OnEnable()
-    {
-
-
-
-    }
     
     // Start is called before the first frame update
     void Start()
     {
-        
-
-
+        _minigameManager.GetComponent<Script_MinigameManager>()._isMinigameRunning = true;
     }
 
     // OnMouseOver is called whenever the mouse is within the collision box of the attached object
